@@ -1,5 +1,5 @@
 """
-ASGI config for inicio_de_sesion project.
+ASGI config for evaluaciones_nombre_estudiantes project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'inicio_de_sesion.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'evaluaciones_nombre_estudiantes.settings')
 
 application = get_asgi_application()

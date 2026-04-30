@@ -1,0 +1,44 @@
+{% extends 'calificaciones/base.html' %}
+
+{% block title %}Listado de Calificaciones{% endblock %}
+
+{% block content %}
+    <h1>Listado de Calificaciones</h1>
+    <table border="1" cellpadding="6" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Identificación</th>
+                <th>Asignatura</th>
+                <th>Nota 1</th>
+                <th>Nota 2</th>
+                <th>Nota 3</th>
+                <th>Promedio</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for calificacion in calificaciones %}
+            <tr>
+                <td>{{ calificacion.nombre_estudiante }}</td>
+                <td>{{ calificacion.identificacion }}</td>
+                <td>{{ calificacion.asignatura }}</td>
+                <td>{{ calificacion.nota1 }}</td>
+                <td>{{ calificacion.nota2 }}</td>
+                <td>{{ calificacion.nota3 }}</td>
+                <td>{{ calificacion.promedio }}</td>
+                <td>
+                    <a href="{% url 'editar' calificacion.id %}">Editar</a> |
+                    <a href="{% url 'eliminar' calificacion.id %}">Eliminar</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="8">No hay calificaciones registradas.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h2>Promedio general</h2>
+    <p>{{ promedio_general|default:'Sin registros aún' }}</p>
+{% endblock %}

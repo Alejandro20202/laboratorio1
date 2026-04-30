@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Avg
 from django.contrib.auth import login, logout
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 
 from .models import Calificacion
-from .forms import CalificacionForm
+from .forms import CalificacionForm, RegistroUsuarioForm
 
 
 def registro(request):
@@ -13,13 +13,13 @@ def registro(request):
         return redirect('listar')
 
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = RegistroUsuarioForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
             return redirect('listar')
     else:
-        form = UserCreationForm()
+        form = RegistroUsuarioForm()
 
     return render(request, 'calificaciones/registro.html', {'form': form})
 

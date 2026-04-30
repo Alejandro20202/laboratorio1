@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Promedio General</title>
-</head>
-<body>
+{% extends 'calificaciones/base.html' %}
+
+{% block title %}Promedio General{% endblock %}
+
+{% block content %}
     <h1>Promedio General</h1>
     <p>Promedio general de todos los estudiantes: <strong>{{ promedio|default:'Sin registros aún' }}</strong></p>
-    <p><a href="{% url 'listar' %}">Volver al listado</a></p>
-</body>
-</html>
+{% endblock %}

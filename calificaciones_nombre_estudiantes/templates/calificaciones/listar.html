@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Listado de Calificaciones</title>
-</head>
-<body>
+{% extends 'calificaciones/base.html' %}
+
+{% block title %}Listado de Calificaciones{% endblock %}
+
+{% block content %}
     <h1>Listado de Calificaciones</h1>
-    <p><a href="{% url 'crear' %}">Nueva calificación</a> | <a href="{% url 'promedio_general' %}">Ver promedio general</a></p>
     <table border="1" cellpadding="6" cellspacing="0">
         <thead>
             <tr>
@@ -44,5 +41,4 @@
     </table>
     <h2>Promedio general</h2>
     <p>{{ promedio_general|default:'Sin registros aún' }}</p>
-</body>
-</html>
+{% endblock %}

@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Eliminar Calificación</title>
-</head>
-<body>
+{% extends 'calificaciones/base.html' %}
+
+{% block title %}Eliminar Calificación{% endblock %}
+
+{% block content %}
     <h1>Eliminar Calificación</h1>
     <p>¿Deseas eliminar la calificación de <strong>{{ calificacion.nombre_estudiante }}</strong> para la asignatura <strong>{{ calificacion.asignatura }}</strong>?</p>
     <form method="post">
@@ -12,5 +10,4 @@
         <button type="submit">Confirmar eliminación</button>
         <a href="{% url 'listar' %}">Cancelar</a>
     </form>
-</body>
-</html>
+{% endblock %}
